@@ -88,4 +88,7 @@ h1{
     .container{
         width: 300px;
     }
+    .title{
+        font-size: 1.1rem;
+    }
 }
