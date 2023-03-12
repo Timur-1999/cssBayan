@@ -5,10 +5,8 @@ body{
     width: 1140px;
     margin: 0 auto;
 }
-h1{
-    font-family: sans-serif;
-    font-weight: 900;
-    font-size: 2rem;
+.wrapper .custom-radio{
+    display: none;
 }
 .wrapper{
     color: #0075FF;
@@ -16,11 +14,20 @@ h1{
 .wrapper:hover{
     color:black;
 }
+.wrapper:hover .custom-radio{
+    display: inline;
+}
+h1{
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+}
 .block-meme{
     border-top: 2px solid #D8DEE4;
     padding: 1rem;
     display: block;
     cursor: pointer;
+    position: relative;
 }
 .title{
     font-weight: 900;
@@ -32,9 +39,32 @@ h1{
     text-align: center;
     display: none;
 }
+.real-radio:checked ~ .img-block{
+    display: block;
+}
 .img-block>img{
     width: 50%;
 }
+.real-radio{
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+.real-radio:checked + .custom-radio::before{
+    content: '+';
+    transform: rotate(45deg);
+}
+.custom-radio::before{
+    content: '+';
+    font-size: 35px;
+    font-weight: 900;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    transition: all .3s ease-out;
+}
+
+
 
 @media(max-width: 1920px){
     .container{
