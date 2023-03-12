@@ -37,10 +37,12 @@ h1{
 .img-block{
     margin-top: 1rem;
     text-align: center;
-    display: none;
+    position: absolute;
+    transform: scale(0);
 }
 .real-radio:checked ~ .img-block{
-    display: block;
+    position: relative;
+    transform: scale(1);
 }
 .img-block>img{
     width: 50%;
@@ -63,9 +65,15 @@ h1{
     right: 10px;
     transition: all .3s ease-out;
 }
-
-
-
+.real-radio:hover ~ .img-block{
+    position: relative;
+    transform: scale(1);
+    transition: all .4s ease-out;
+}
+.real-radio:hover + .custom-radio::before{
+    content: '+';
+    transform: rotate(45deg);
+}
 @media(max-width: 1920px){
     .container{
         width: 720px;
